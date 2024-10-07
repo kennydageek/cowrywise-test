@@ -13,18 +13,19 @@ export default class FetchPhotoService {
 
       return data;
     } catch (err) {
-      console.log(err);
-      toast.success(err.response.data.errors[0], 3000);
+      toast.error(err.response.data.errors[0], 3000);
     }
   }
 
   static async fetchSearchPhotos(params) {
+    const toast = useToastStore();
+
     try {
       const { data } = await http.get(ENDPOINTS.GET_SEARCH_PHOTOS, { params });
 
       return data;
     } catch (err) {
-      toast.success(err.response.data.errors[0], 3000);
+      toast.error(err.response.data.errors[0], 3000);
     }
   }
 }

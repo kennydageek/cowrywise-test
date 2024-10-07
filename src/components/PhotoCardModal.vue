@@ -76,23 +76,16 @@ const props = defineProps({
   }
 
   @media (max-width: 480px) {
-    height: 70%;
+    height: 80%;
   }
 }
 
 .user-details {
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.99
-  ); /* White semi-transparent background */
+  background-color: rgba(255, 255, 255, 0.99);
   padding: 2rem 4rem;
   text-align: left;
-  //   position: absolute;
   bottom: 0;
   width: 100%;
-  box-sizing: border-box; /* Ensure padding doesn't overflow */
 
   @media (max-width: 1024px) {
     padding: 1.5rem 3rem;

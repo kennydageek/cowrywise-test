@@ -31,16 +31,13 @@ const props = defineProps({
     default: () => {},
   },
 });
-console.log(props);
 </script>
 
 <style lang="scss" scoped>
 .container {
   cursor: pointer;
-  //   width: 30rem;
   height: 100%;
-  //   border-radius: 0.75rem;
-  position: relative; /* Ensure relative positioning for overlay */
+  position: relative;
 
   &__image {
     width: 100%;

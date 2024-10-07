@@ -12,10 +12,9 @@ const toastStore = useToastStore();
 const isActive = computed(() => toastStore.isActive);
 const message = computed(() => toastStore.message);
 const type = computed(() => toastStore.type);
-console.log(type);
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .toast {
   position: fixed;
   top: 20px;
@@ -28,6 +27,18 @@ console.log(type);
   opacity: 0;
   transition: opacity 0.5s;
   z-index: 9999;
+
+  @media (max-width: 1024px) {
+    right: -30px;
+  }
+
+  @media (max-width: 768px) {
+    right: -30px;
+  }
+
+  @media (max-width: 480px) {
+    right: -30px;
+  }
 }
 
 .toast.show {

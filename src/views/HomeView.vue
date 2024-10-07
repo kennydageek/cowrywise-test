@@ -1,6 +1,5 @@
 <template>
   <main>
-    <!-- Header Section with Search Bar -->
     <header class="header">
       <form class="search-field" @submit.prevent="fetchSearchPhotos">
         <input
@@ -51,14 +50,15 @@ const loading = ref(false);
 const sizes = ['small', 'medium', 'large'];
 
 const getGridItemClass = (index) => {
-  if (index === 0) return 'small'; // First item is normal size
-  if (index === 1) return 'large'; // Second item is large
-  if (index === 2) return 'medium'; // Third item is medium
-  if (index === 3) return 'large'; // Third item is medium
-  if (index === 4) return 'medium'; // Third item is medium
-  if (index === 5) return 'medium'; // Third item is medium
+  // This is to make sure the first 6 images look like the mockup
+  if (index === 0) return 'small';
+  if (index === 1) return 'large';
+  if (index === 2) return 'medium';
+  if (index === 3) return 'large';
+  if (index === 4) return 'medium';
+  if (index === 5) return 'medium';
 
-  // Randomly select a size from the sizes array
+  // This is to just randomly assign sizes for the other images
   const randomIndex = Math.floor(Math.random() * sizes.length);
   return sizes[randomIndex];
 };
@@ -70,10 +70,7 @@ const fetchPhotos = async () => {
       per_page: 7,
     };
     const data = await FetchPhotoService.fetchPhotos(params);
-    console.log(data);
-    console.log(data.length);
     photos.value = data;
-    console.log(photos.value);
     loading.value = false;
   } catch (error) {
     loading.value = false;
@@ -88,11 +85,8 @@ const fetchSearchPhotos = async () => {
       per_page: 7,
     };
     const data = await FetchPhotoService.fetchSearchPhotos(params);
-    console.log(data);
-    console.log(data.length);
     photos.value = data.results;
     loading.value = false;
-    console.log(photos.value);
   } catch (error) {
     loading.value = false;
   }
@@ -103,14 +97,13 @@ const closeModal = () => {
 };
 
 const handleOpenModal = (image) => {
-  console.log(image);
   isModalOpen.value = true;
   photoDetails.value = image;
 };
 
 watch(searchTerm, (newValue) => {
   if (newValue === '') {
-    fetchPhotos(); // Fetch default photos when searchTerm is empty
+    fetchPhotos();
   }
 });
 
@@ -120,7 +113,6 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
-/* Header styling */
 .header {
   background-color: #dce3ea;
   padding: 13rem 15rem;
