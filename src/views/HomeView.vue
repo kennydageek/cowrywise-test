@@ -1,7 +1,11 @@
 <template>
   <main>
     <header class="header">
-      <form class="search-field" @submit.prevent="fetchSearchPhotos">
+      <h1 v-if="showSearchTerm && loading">
+        Searching for <span>{{ `"${searchTerm}"` }}</span>
+      </h1>
+
+      <form class="search-field" @submit.prevent="fetchSearchPhotos" v-else>
         <input
           type="text"
           placeholder="Search for photo"
@@ -45,6 +49,7 @@ const isModalOpen = ref(false);
 const photos = ref([]);
 const photoDetails = ref();
 const searchTerm = ref('');
+const showSearchTerm = ref(false);
 const loading = ref(false);
 
 const sizes = ['small', 'medium', 'large'];
@@ -78,7 +83,9 @@ const fetchPhotos = async () => {
 };
 
 const fetchSearchPhotos = async () => {
+  if (searchTerm.value === '') return;
   try {
+    showSearchTerm.value = true;
     loading.value = true;
     const params = {
       query: searchTerm.value,
@@ -103,6 +110,7 @@ const handleOpenModal = (image) => {
 
 watch(searchTerm, (newValue) => {
   if (newValue === '') {
+    showSearchTerm.value = false;
     fetchPhotos();
   }
 });
@@ -118,6 +126,14 @@ onMounted(() => {
   padding: 13rem 15rem;
   position: relative;
   z-index: 2;
+
+  & h1 {
+    color: #1e2c5a;
+  }
+
+  span {
+    color: #6e7e93;
+  }
 
   @media (max-width: 1024px) {
     padding: 10rem 10rem;
@@ -192,7 +208,7 @@ onMounted(() => {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
   grid-auto-rows: 10px;
-  grid-gap: 30px 30px;
+  grid-gap: 45px 60px;
   padding: 20px;
   margin: 0 auto;
   margin-top: -80px;
