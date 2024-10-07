@@ -1,29 +1,8 @@
-# cowrywise-test
+# cowrywise test
 
-This template should help get you started developing with Vue 3 in Vite.
+<!--
+I'm using an env file and here is the value of the env file
 
-## Recommended IDE Setup
-
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
-```sh
-npm install
-```
-
-### Compile and Hot-Reload for Development
-
-```sh
-npm run dev
-```
-
-### Compile and Minify for Production
-
-```sh
-npm run build
-```
+VITE_VUE_APP_API_BASE=https://api.unsplash.com
+VITE_VUE_APP_ACCESS_KEY=GHcx60qXJDqflGVDuGtelBbNXtbmU6xJuATjs-tylnU
+-->
