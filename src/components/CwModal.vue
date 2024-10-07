@@ -61,11 +61,8 @@ const closeModal = () => {
   & span {
     position: absolute;
     right: -7rem;
-    top: -3rem;
+    // top: -3rem;
     cursor: pointer;
-
-    @media (max-width: 1024px) {
-    }
 
     @media (max-width: 768px) {
       top: -2rem;

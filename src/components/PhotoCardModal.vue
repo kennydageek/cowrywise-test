@@ -41,18 +41,18 @@ const props = defineProps({
 .modal-content {
   position: relative;
   width: 100%;
-  height: 760px;
+  height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   border-radius: 0.5rem;
 
   @media (max-width: 1024px) {
-    height: auto;
+    height: 60vh;
   }
 
   @media (max-width: 768px) {
-    // height: auto;
+    height: 40vh;
   }
 
   @media (max-width: 480px) {
