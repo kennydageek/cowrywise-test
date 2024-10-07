@@ -1,6 +1,4 @@
 import { http } from '@/http/index.js';
-// import { resolveRequestError } from '@/utils/auth.js';
-// import app from '@/main';
 import { useToastStore } from '@/stores/toastStore';
 import * as ENDPOINTS from './endpoints';
 

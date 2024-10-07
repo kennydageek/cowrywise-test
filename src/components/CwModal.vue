@@ -6,7 +6,9 @@
     tabindex="-1"
   >
     <div class="modal-container">
-      <span><img src="@/assets/xmark.svg" @click="closeModal" alt="" /></span>
+      <span
+        ><img src="@/assets/icons/xmark.svg" @click="closeModal" alt=""
+      /></span>
       <div class="modal-content">
         <div class="modal-body">
           <slot />
